@@ -1,50 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <form action="#" method="post">
-         <input type="text" value="0" id="clock"/>
-         <input type="button" value="复位" onclick="reset()"/>
-         <input type="button" value="开始" onclick="start()"/>
-         <input type="button" value="暂停" id="pauseId" onclick="pause()"/>
-         
+        <input type="text" value="0" id="clock" />
+        <input type="button" value="复位" onclick="reset()" />
+        <input type="button" value="开始" onclick="start()" />
+        <input type="button" value="暂停" id="pauseId" onclick="pause()" />
+
 
     </form>
     <script type="text/javascript">
-        var click ;
+        var click;
         var interId;
-        function reset(){
-             document.getElementById("clock").value = 0;
+
+        function reset() {
+            document.getElementById("clock").value = 0;
         }
         var init = document.getElementById("clock").value;
-        function start(){
-            click=true;
-             interId = setInterval(clock,1000);
+
+        function start() {
+            click = true;
+            interId = setInterval(clock, 1000);
         }
-        function clock(){
-            if(interId != null|| interId!=""){
-            init++;
-            var obj = document.getElementById("clock");
-            obj.value = init;
+
+        function clock() {
+            if (interId != null || interId != "") {
+                init++;
+                var obj = document.getElementById("clock");
+                obj.value = init;
             }
         }
-        function pause(){
-            if(click){
+
+        function pause() {
+            if (click) {
                 document.getElementById("pauseId").value = "继续";
-                click= false;
+                click = false;
                 window.clearInterval(interId);
-            }
-            else{
+            } else {
                 document.getElementById("pauseId").value = "暂停";
-                interId = setInterval(clock,1000);
-                click =true;
+                interId = setInterval(clock, 1000);
+                click = true;
             }
         }
     </script>
 </body>
+
 </html>
